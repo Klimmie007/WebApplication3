@@ -1,21 +1,34 @@
 ﻿@page
 @model IndexModel
+
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome @Model.Name</h1>
+    <h1 class="display-4">Welcome User</h1>
     <form method="post">
-        <label asp-for="Address.Street"></label>
-        <input asp-for="Address.Street" /><br />
-        <label asp-for="Address.Number"></label>
-        <input asp-for="Address.Number" /><br />
-        <label asp-for="Address.ZipCode"></label>
-        <input asp-for="Address.ZipCode" /><br />
-        <label asp-for="Address.City"></label>
-        <input asp-for="Address.City" /><br />
-        <button type="submit">Zatwierdź</button>
-        <span asp-validation-for="Address.Street" class="text-danger"></span>
+        <label asp-for="FizzBuzz.Number"></label>
+        <input asp-for="FizzBuzz.Number" /><br />
+        <button type="submit">Zatwierdź</button><br />
+        <b><span asp-validation-for="FizzBuzz.Number" class="text-danger"></span></b>
     </form>
+    @if (Model.FizzBuzz != null)
+    {
+        @if (@Model.FizzBuzz.Number%3 != 0 && @Model.FizzBuzz.Number%5 != 0)
+        {
+            <p>
+            Liczba: @Model.FizzBuzz.Result nie spełnia kryteriów FizzBuzz
+            </p>
+        }
+        else
+        {
+            @if(!string.IsNullOrWhiteSpace(@Model.FizzBuzz.Result))
+            {
+            <p>
+            Otrzymano: @Model.FizzBuzz.Result
+            </p>
+            }
+        }
+    }
 </div>

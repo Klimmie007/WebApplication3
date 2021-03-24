@@ -22,7 +22,6 @@ C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.RazorCoreGenerate.cache
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
-C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
@@ -34,3 +33,6 @@ C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.pdb
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.genruntimeconfig.cache
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.csproj.CopyComplete
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\WebApplication3.csprojAssemblyReference.cache
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\Ostatnio Szukane.cshtml.g.cs

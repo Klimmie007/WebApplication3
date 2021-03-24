@@ -1,0 +1,17 @@
+﻿@page
+@model PrivacyModel
+@{ ViewData["Title"] = "Ostatnio Szukane"; }
+<h1>@ViewData["Title"]</h1>
+
+<p>Dane w zapisane w sesji</p>
+@if (Model.FizzBuzz != null)
+{
+<p>
+    @Html.DisplayNameFor(model => Model.FizzBuzz.Number):
+    @Model.FizzBuzz.Number
+    @Html.DisplayNameFor(model => Model.FizzBuzz.Result):
+    @Model.FizzBuzz.Result
+    @Html.DisplayNameFor(model => Model.FizzBuzz.Date):
+    @Model.FizzBuzz.Date
+</p>
+}
