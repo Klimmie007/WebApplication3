@@ -15,7 +15,7 @@
     </form>
     @if (Model.FizzBuzz != null)
     {
-        @if (@Model.FizzBuzz.Number%3 != 0 && @Model.FizzBuzz.Number%5 != 0)
+        @if (@Model.FizzBuzz.Number%3 != 0 && @Model.FizzBuzz.Number%5 != 0 && @Model.FizzBuzz.Number > 1 && @Model.FizzBuzz.Number < 1000)
         {
             <p>
             Liczba: @Model.FizzBuzz.Result nie spełnia kryteriów FizzBuzz
