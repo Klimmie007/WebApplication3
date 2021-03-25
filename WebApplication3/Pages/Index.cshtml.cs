@@ -43,7 +43,12 @@ namespace WebApplication3.Pages
                 return Page();
             }
             FizzBuzz.Result = "";
-            if(FizzBuzz.Number % 3 == 0)
+            if (FizzBuzz.Number < 1 || FizzBuzz.Number > 1000)
+            {
+                HttpContext.Session.SetString("SessionAddress", JsonConvert.SerializeObject(FizzBuzz));
+                return Page();
+            }
+            if (FizzBuzz.Number % 3 == 0)
             {
                 FizzBuzz.Result += "Fizz";
             }
