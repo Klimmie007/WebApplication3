@@ -18,8 +18,30 @@ namespace WebApplication3.Pages
         public FizzBuzz FizzBuzz { get; set; }
         [BindProperty(SupportsGet = true)]
         public string Name { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public bool Filled { get; set; }
+        [BindProperty]
+        public string Message
+        {
+            get 
+            {
+                if (!ModelState.IsValid)
+                {
+                    return "";
+                }
+                string mess;
+                var SessionAddress = HttpContext.Session.GetString("SessionAddress");
+                if (SessionAddress != null)
+                {
+                    FizzBuzz = JsonConvert.DeserializeObject<FizzBuzz>(SessionAddress);
+                    if (FizzBuzz.Number % 3 == 0 || FizzBuzz.Number % 5 == 0)
+                        mess = "Otrzymano: " + FizzBuzz.Result;
+                    else
+                        mess = "Liczba: " + FizzBuzz.Result + " nie spełnia kryteriów FizzBuzz";
+                }
+                else
+                    mess = "";
+                return mess;
+            }
+        }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -32,9 +54,6 @@ namespace WebApplication3.Pages
             {
                 Name = "User";
             }
-            var SessionAddress = HttpContext.Session.GetString("SessionAddress");
-            if (SessionAddress != null)
-                FizzBuzz = JsonConvert.DeserializeObject<FizzBuzz>(SessionAddress);
         }
         public IActionResult OnPost()
         {   
@@ -42,28 +61,9 @@ namespace WebApplication3.Pages
             {
                 return Page();
             }
-            FizzBuzz.Result = "";
-            if (FizzBuzz.Number < 1 || FizzBuzz.Number > 1000)
-            {
-                HttpContext.Session.SetString("SessionAddress", JsonConvert.SerializeObject(FizzBuzz));
-                return Page();
-            }
-            if (FizzBuzz.Number % 3 == 0)
-            {
-                FizzBuzz.Result += "Fizz";
-            }
-            if(FizzBuzz.Number % 5 == 0)
-            {
-                FizzBuzz.Result += "Buzz";
-            }
-            if (FizzBuzz.Result == "")
-            {
-                FizzBuzz.Result = FizzBuzz.Number.ToString();
-            }
             FizzBuzz.Date = DateTime.Now;
             HttpContext.Session.SetString("SessionAddress", JsonConvert.SerializeObject(FizzBuzz));
             return Page();
         }
-
     }
 }

@@ -6,29 +6,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome User</h1>
+    <h1 class="display-4">Welcome @Model.Name</h1>
     <form method="post">
         <label asp-for="FizzBuzz.Number"></label>
         <input asp-for="FizzBuzz.Number" /><br />
         <button type="submit">Zatwierdź</button><br />
         <b><span asp-validation-for="FizzBuzz.Number" class="text-danger"></span></b>
     </form>
-    @if (Model.FizzBuzz != null)
-    {
-        @if (@Model.FizzBuzz.Number%3 != 0 && @Model.FizzBuzz.Number%5 != 0 && @Model.FizzBuzz.Number > 1 && @Model.FizzBuzz.Number < 1000)
-        {
-            <p>
-            Liczba: @Model.FizzBuzz.Result nie spełnia kryteriów FizzBuzz
-            </p>
-        }
-        else
-        {
-            @if(!string.IsNullOrWhiteSpace(@Model.FizzBuzz.Result))
-            {
-            <p>
-            Otrzymano: @Model.FizzBuzz.Result
-            </p>
-            }
-        }
-    }
+    <p>@Model.Message</p>
 </div>
