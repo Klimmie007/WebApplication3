@@ -31,7 +31,12 @@ namespace WebApplication3.Models
                 number = value;
             }
         }
+        [Required]
         public DateTime Date { get; set; }
+        [Required]
+        public int Id { get; set; }
+        [Required]
+        [MaxLength(10)]
         public string Result { get; set; }
     }
 

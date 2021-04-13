@@ -5,14 +5,20 @@ using WebApplication3.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
+using WebApplication3.Data;
 
 namespace WebApplication3.Pages
 {
     public class IndexModel : PageModel
     {
+        public IConfiguration _configuration { get; }
+        private readonly FizzBuzzContext _context;
         private readonly ILogger<IndexModel> _logger;
         [BindProperty]
         public FizzBuzz FizzBuzz { get; set; }
@@ -43,9 +49,11 @@ namespace WebApplication3.Pages
             }
         }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(IConfiguration configuration, ILogger<IndexModel> logger, FizzBuzzContext context)
         {
             _logger = logger;
+            _configuration = configuration;
+            _context = context;
         }
 
         public void OnGet()
@@ -63,6 +71,8 @@ namespace WebApplication3.Pages
             }
             FizzBuzz.Date = DateTime.Now;
             HttpContext.Session.SetString("SessionAddress", JsonConvert.SerializeObject(FizzBuzz));
+            _context.FizzBuzzes.Add(FizzBuzz);
+            _context.SaveChanges();
             return Page();
         }
     }
