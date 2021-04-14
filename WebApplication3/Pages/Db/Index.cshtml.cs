@@ -21,11 +21,11 @@ namespace WebApplication3.Pages.Db
 
         public IList<FizzBuzz> FizzBuzz { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            FizzBuzz = await _context.FizzBuzzes
+            FizzBuzz =_context.FizzBuzzes
                 .OrderByDescending(f => f.Date).Take(10)
-                .ToListAsync();
+                .ToList();
         }
     }
 }
