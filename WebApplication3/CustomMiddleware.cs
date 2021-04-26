@@ -17,7 +17,7 @@ namespace WebApplication3
 
         public Task Invoke(HttpContext httpContext)
         {
-            if (httpContext.Request.Headers["User-Agent"].ToString() == "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.41")
+            if (httpContext.Request.Headers["User-Agent"].ToString() == "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77")
             {
                 httpContext.Response.WriteAsync("Przegladarka nie jest obslugiwana");
             }

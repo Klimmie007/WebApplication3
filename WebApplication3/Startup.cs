@@ -55,7 +55,7 @@ namespace WebApplication3
             app.UseMiddleware<CustomMiddleware>();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseSession();
 
             app.UseRouting();
