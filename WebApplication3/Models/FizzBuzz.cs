@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace WebApplication3.Models
 {
     public class FizzBuzz
@@ -38,6 +39,8 @@ namespace WebApplication3.Models
         [Required]
         [MaxLength(10)]
         public string Result { get; set; }
+        [MaxLength(450)]
+        public string UserId { get; set; }
     }
 
 }

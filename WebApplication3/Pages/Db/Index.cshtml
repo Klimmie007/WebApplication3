@@ -36,7 +36,8 @@
             </td>
             <td>
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                @if (item.UserId == Model.userId) {
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>}
             </td>
         </tr>
 }

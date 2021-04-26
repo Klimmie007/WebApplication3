@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace WebApplication3
             {
                 options.UseSqlServer(Configuration.GetConnectionString("WebApplication3DB"));
             });
+            services.AddHttpContextAccessor();
             services.AddRazorPages();
             services.AddMemoryCache();
             services.AddSession(options =>

@@ -205,3 +205,7 @@ C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll

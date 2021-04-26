@@ -37,6 +37,10 @@ namespace WebApplication3.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasMaxLength(450);
+
                     b.HasKey("Id");
 
                     b.ToTable("FizzBuzzes");

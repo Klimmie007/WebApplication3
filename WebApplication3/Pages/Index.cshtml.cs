@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using WebApplication3.Models;
 using System;
+using System.Security.Claims;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,17 @@ using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using WebApplication3.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
+
 
 namespace WebApplication3.Pages
 {
     public class IndexModel : PageModel
     {
         public IConfiguration _configuration { get; }
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly FizzBuzzContext _context;
-        private readonly ILogger<IndexModel> _logger;
         [BindProperty]
         public FizzBuzz FizzBuzz { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -49,11 +53,11 @@ namespace WebApplication3.Pages
             }
         }
 
-        public IndexModel(IConfiguration configuration, ILogger<IndexModel> logger, FizzBuzzContext context)
+        public IndexModel(IHttpContextAccessor httpContextAccessor, IConfiguration configuration, FizzBuzzContext context)
         {
-            _logger = logger;
             _configuration = configuration;
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public void OnGet()
@@ -64,11 +68,13 @@ namespace WebApplication3.Pages
             }
         }
         public IActionResult OnPost()
-        {   
+        {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            string userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) ;
+            FizzBuzz.UserId = userId;
             FizzBuzz.Date = DateTime.Now;
             HttpContext.Session.SetString("SessionAddress", JsonConvert.SerializeObject(FizzBuzz));
             _context.FizzBuzzes.Add(FizzBuzz);
