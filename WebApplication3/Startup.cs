@@ -30,6 +30,7 @@ namespace WebApplication3
             {
                 options.UseSqlServer(Configuration.GetConnectionString("WebApplication3DB"));
             });
+            services.AddBrowserDetection();
             services.AddHttpContextAccessor();
             services.AddRazorPages();
             services.AddMemoryCache();

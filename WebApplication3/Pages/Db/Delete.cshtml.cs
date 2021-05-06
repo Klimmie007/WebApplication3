@@ -17,9 +17,10 @@ namespace WebApplication3.Pages.Db
         private readonly WebApplication3.Data.FizzBuzzContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public DeleteModel(WebApplication3.Data.FizzBuzzContext context)
+        public DeleteModel(WebApplication3.Data.FizzBuzzContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [BindProperty]
@@ -31,13 +32,13 @@ namespace WebApplication3.Pages.Db
             {
                 return NotFound();
             }
-
+            var UserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             FizzBuzz = await _context.FizzBuzzes.FirstOrDefaultAsync(m => m.Id == id);
             if (FizzBuzz == null)
             {
                 return NotFound();
             }
-            if (FizzBuzz.UserId == null || FizzBuzz.UserId != _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier))
+            if (FizzBuzz.UserId == null || UserId == null || FizzBuzz.UserId != UserId)
                 return Redirect("./Details?id=" + id);
             return Page();
         }

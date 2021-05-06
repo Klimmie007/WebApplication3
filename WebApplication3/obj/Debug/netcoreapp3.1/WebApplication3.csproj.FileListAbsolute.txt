@@ -209,3 +209,4 @@ C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\EntityFramework.dll
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\System.CodeDom.dll
 C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\yourp\source\repos\WebApplication3\WebApplication3\bin\Debug\netcoreapp3.1\Shyjus.BrowserDetector.dll

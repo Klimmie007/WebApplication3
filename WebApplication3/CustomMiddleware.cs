@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
+using Shyjus.BrowserDetection;
 
 namespace WebApplication3
 {
@@ -15,9 +16,11 @@ namespace WebApplication3
             this.next = next;
         }
 
-        public Task Invoke(HttpContext httpContext)
+        public Task Invoke(HttpContext httpContext, IBrowserDetector detector)
         {
-            if (httpContext.Request.Headers["User-Agent"].ToString() == "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77")
+            var browser = detector.Browser;
+            if (browser.Name == BrowserNames.Edge || browser.Name == BrowserNames.EdgeChromium 
+                || browser.Name == BrowserNames.InternetExplorer)
             {
                 httpContext.Response.WriteAsync("Przegladarka nie jest obslugiwana");
             }
