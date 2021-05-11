@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace WebApplication3.Pages
 {
+    [CustomFilter]
     public class IndexModel : PageModel
     {
         public IConfiguration _configuration { get; }
@@ -59,7 +60,6 @@ namespace WebApplication3.Pages
             _context = context;
             _httpContextAccessor = httpContextAccessor;
         }
-
         public void OnGet()
         {
             if (string.IsNullOrWhiteSpace(Name))

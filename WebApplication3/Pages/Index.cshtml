@@ -3,9 +3,11 @@
 
 @{
     ViewData["Title"] = "Home page";
+    var ipAddress = ViewData["IpAddress"];
 }
 
 <div class="text-center">
+    <p>IP Address: @ipAddress</p>
     <h1 class="display-4">Welcome @Model.Name</h1>
     <form method="post">
         <label asp-for="FizzBuzz.Number"></label>

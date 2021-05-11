@@ -35,8 +35,8 @@
                 @Html.DisplayFor(modelItem => item.Result)
             </td>
             <td>
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                @if (item.UserId == Model.userId) {
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                @if (item.UserId == Model.userId) { <a>|</a> 
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>}
             </td>
         </tr>
